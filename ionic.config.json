@@ -1,0 +1,7 @@
+{
+  "name": "modCheck",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
