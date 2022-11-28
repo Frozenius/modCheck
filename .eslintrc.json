@@ -1,46 +1,90 @@
 {
   "root": true,
-  "ignorePatterns": ["projects/**/*"],
   "overrides": [
     {
-      "files": ["*.ts"],
+      "files": [
+        "*.js"
+      ],
       "parserOptions": {
-        "project": ["tsconfig.json"],
+        "ecmaVersion": 2018
+      }
+    },
+    {
+      "files": [
+        "*.ts"
+      ],
+      "parserOptions": {
+        "project": [
+          "tsconfig.*?.json"
+        ],
         "createDefaultProgram": true
       },
       "extends": [
         "plugin:@angular-eslint/recommended",
-        "plugin:@angular-eslint/template/process-inline-templates"
+        "plugin:@typescript-eslint/recommended",
+        "prettier"
       ],
       "rules": {
         "@angular-eslint/component-class-suffix": [
           "error",
           {
-            "suffixes": ["Page", "Component"]
-          }
-        ],
-        "@angular-eslint/component-selector": [
-          "error",
-          {
-            "type": "element",
-            "prefix": "app",
-            "style": "kebab-case"
+            "suffixes": [
+              "Component",
+              "Page"
+            ]
           }
         ],
         "@angular-eslint/directive-selector": [
           "error",
           {
             "type": "attribute",
-            "prefix": "app",
+            "prefix": "",
             "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": [
+              "sgc",
+              "app"
+            ],
+            "style": "kebab-case"
           }
         ]
       }
     },
     {
-      "files": ["*.html"],
-      "extends": ["plugin:@angular-eslint/template/recommended"],
-      "rules": {}
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ]
+    },
+    {
+      "files": [
+        "*.component.ts"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ]
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
+      "rules": {
+        "@angular-eslint/template/accessibility-alt-text": "warn",
+        "@angular-eslint/template/accessibility-elements-content": "warn",
+        "@angular-eslint/template/accessibility-label-has-associated-control": "warn",
+        "@angular-eslint/template/accessibility-table-scope": "warn",
+        "@angular-eslint/template/accessibility-valid-aria": "warn"
+      }
     }
   ]
 }

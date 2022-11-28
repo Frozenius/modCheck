@@ -1,0 +1,17 @@
+@forward '@nebular/theme/styles/theming';
+@use '@nebular/theme/styles/theming' as *;
+@use '@nebular/theme/styles/themes/dark';
+
+$nb-themes: nb-register-theme((
+  // add your variables here like:
+  //color-primary-100: var(--surface-ground),
+  //color-primary-200: var(--surface-ground),
+  //color-primary-300: var(--surface-ground),
+  //color-primary-400: var(--surface-ground),
+  //color-primary-500: var(--surface-ground),
+  //color-primary-600: var(--surface-ground),
+  //color-primary-700: var(--surface-ground),
+  //color-primary-800: var(--surface-ground),
+  //color-primary-900: var(--surface-ground),
+  layout-background-color: var(--surface-ground)
+), dark, dark);

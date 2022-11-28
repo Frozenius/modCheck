@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { NbAuthService } from '@nebular/auth';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  constructor(private auth: NbAuthService, private router: Router) {
+    this.auth.onTokenChange().subscribe({
+      next: (authenticated) => {
+        if (!authenticated) {
+          this.router.navigateByUrl('/auth/sign-in');
+        }
+      },
+    });
+  }
 }

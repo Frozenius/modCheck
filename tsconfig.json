@@ -2,7 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -19,8 +19,34 @@
     "target": "es2015",
     "module": "es2020",
     "lib": [
-      "es2018", 
+      "es2018",
       "dom"
+    ],
+    "paths": {
+      "@core/*": [
+        "app/core/*"
+      ],
+      "@modules/*": [
+        "app/modules/*"
+      ],
+      "@shared/*": [
+        "app/shared/*"
+      ],
+      "@environment/*": [
+        "environments/*"
+      ],
+      "@public/*": [
+        "app/public/*"
+      ],
+      "@features/*": [
+        "app/features/*"
+      ],
+      "@utils/*": [
+        "app/utils/*"
+      ]
+    },
+    "typeRoots": [
+      "node_modules/@types"
     ],
     "useDefineForClassFields": false
   },
@@ -28,6 +54,10 @@
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictTemplates": true,
+    "strictNullChecks": true,
+    "extendedDiagnostics": {
+      "defaultCategory": "error"
+    }
   }
 }

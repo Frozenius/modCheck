@@ -1,0 +1,104 @@
+<ion-content [fullscreen]="true">
+  <div class="min-h-screen max-h-screen flex relative lg:static surface-ground overflow-hidden">
+    <div
+      class="h-full lg:h-auto surface-section hidden lg:block flex-shrink-0 absolute lg:static left-0 top-0 z-1 border-right-1 surface-border w-18rem lg:w-7rem select-none"
+      id="app-sidebar-9">
+      <div class="flex flex-column h-full">
+        <div class="flex align-items-center justify-content-center flex-shrink-0" style="height:60px">
+          <img alt="Image" height="30" src="assets/3x.gif">
+        </div>
+        <div class="mt-3">
+          <ul class="list-none p-0 m-0">
+            <li>
+              <a
+                class="flex flex-row lg:flex-column align-items-center cursor-pointer p-3 lg:justify-content-center text-600 border-left-2 border-transparent hover:border-300 transition-duration-150 transition-colors no-underline"
+                pRipple routerLink="/modcheck/home" routerLinkActive="border-cyan-600 text-cyan-600">
+                <i class="pi pi-home mr-2 lg:mr-0 mb-0 lg:mb-2 text-base lg:text-2xl"></i>
+                <span class="font-medium inline text-base lg:text-xs lg:block">Home</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="flex flex-row lg:flex-column align-items-center cursor-pointer p-3 lg:justify-content-center text-600 border-left-2 border-transparent hover:border-300 transition-duration-150 transition-colors no-underline"
+                pRipple routerLink="/modcheck/chat" routerLinkActive="border-cyan-600 text-cyan-600">
+                <i class="mdi mdi-message-reply-outline mr-2 lg:mr-0 mb-0 lg:mb-2 text-base lg:text-2xl"></i>
+                <span class="font-medium inline text-base lg:text-xs lg:block">Chat</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="mt-auto">
+          <hr class="mb-3 mx-3 border-top-1 border-none surface-border" />
+          <a
+            (click)="signOut()"
+            class="m-3 flex flex-row lg:flex-column align-items-center cursor-pointer p-3 lg:justify-content-center hover:surface-200 border-round text-600 transition-duration-150 transition-colors no-underline"
+            pRipple>
+            <i class="pi pi-power-off text-red-100"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+    <div class="min-h-screen flex flex-column relative flex-auto">
+      <div
+        class="flex justify-content-between align-items-center px-5 surface-section relative lg:static border-bottom-1 surface-border"
+        style="height:60px">
+        <div class="flex">
+          <a [hideOnOutsideClick]="true" class="cursor-pointer block lg:hidden text-700 mr-3"
+             enterActiveClass="fadeinleft"
+             enterClass="hidden" leaveActiveClass="fadeoutleft" leaveToClass="hidden" pRipple
+             pStyleClass="#app-sidebar-9">
+            <i class="pi pi-bars text-4xl"></i>
+          </a>
+          <span class="p-input-icon-left">
+                        <i class="pi pi-search"></i>
+                        <input class="border-none w-10rem sm:w-20rem" pInputText placeholder="Search" type="text">
+                    </span>
+        </div>
+        <a [hideOnOutsideClick]="true" class="cursor-pointer block lg:hidden text-700" enterActiveClass="fadein"
+           enterClass="hidden"
+           leaveActiveClass="fadeout" leaveToClass="hidden" pRipple pStyleClass="@next">
+          <i class="pi pi-ellipsis-v text-2xl"></i>
+        </a>
+        <ul class="list-none p-0 m-0 hidden lg:flex lg:align-items-center select-none lg:flex-row
+                    surface-section border-1 lg:border-none surface-border right-0 top-100 z-1 shadow-2 lg:shadow-none absolute lg:static">
+          <!--          <li>-->
+          <!--            <a class="flex p-3 lg:px-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer-->
+          <!--                            transition-duration-150 transition-colors" pRipple>-->
+          <!--              <i class="pi pi-bell text-base lg:text-2xl mr-2 lg:mr-0" pBadge severity="info"></i>-->
+          <!--              <span class="block lg:hidden font-medium">Notifications</span>-->
+          <!--            </a>-->
+          <!--          </li>-->
+          <li>
+            <div class="flex justify-content-between align-items-center">
+              <div class="col">
+                <i class="mdi mdi-sword text-2xl"></i>
+              </div>
+              <div class="col">
+                <p-inputSwitch (click)="switchStreamerMode()" [(ngModel)]="streamerMode"></p-inputSwitch>
+              </div>
+              <div class="col">
+                <i class="mdi mdi-video text-2xl"></i>
+              </div>
+            </div>
+          </li>
+          <li class="border-top-1 surface-border lg:border-top-none">
+            <a class="flex p-3 lg:px-3 lg:py-2 align-items-center hover:surface-100 font-medium border-round cursor-pointer
+                            transition-duration-150 transition-colors" pRipple>
+              <img [src]="profile?.profile_image_url" alt="profile"
+                   class="mr-3 lg:mr-0" style="width: 32px; height: 32px; border-radius: 50%" />
+              <div class="block lg:hidden">
+                <div class="text-900 font-medium">{{profile?.display_name}}</div>
+                <span class="text-600 font-medium text-sm">{{profile?.broadcaster_type}}</span>
+              </div>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+      <div class="overflow-hidden">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</ion-content>

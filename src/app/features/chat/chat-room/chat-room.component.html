@@ -1,0 +1,24 @@
+<div class="flex flex-column flex-auto overflow-hidden">
+  <nb-layout class="surface-ground p-0 overflow-hidden" style="max-height: calc(100vh - 60px)">
+    <nb-layout-column class="p-0 overflow-hidden" style="max-height: calc(100vh - 60px)">
+      <nb-chat class="min-h-full" size="large" title="Moderator Chat">
+        <nb-chat-message *ngFor="let msg of messages"
+                         [avatar]="msg.user.avatar"
+                         [date]="msg.date"
+                         [files]="msg.files"
+                         [latitude]="msg.latitude"
+                         [longitude]="msg.longitude"
+                         [message]="msg.text"
+                         [quote]="msg.quote"
+                         [reply]="msg.reply"
+                         [sender]="msg.user.name"
+                         [type]="msg.type">
+
+        </nb-chat-message>
+        <nb-chat-form (send)="sendMessage($event)" [dropFiles]="true">
+        </nb-chat-form>
+      </nb-chat>
+    </nb-layout-column>
+  </nb-layout>
+
+</div>
